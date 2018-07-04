@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>恋爱计时器</title>
+    <title>iPersistence</title>
     <style>
         body {
             -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
             <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
         </div>
     </div>
-
+    <!-->
     <script>
         function timer() {
             var start = new Date("2018-06-07 00:00:00"); // 2015.7.2
@@ -62,7 +62,6 @@
             if (m < 10) {
                 m = "0" + m;
             }
-
             var s = ~~(t / 1000 % 60);
             if (s < 10) {
                 s = "0" + s;
@@ -75,6 +74,32 @@
         timer();
         setInterval(timer, 1000);
     </script>
+    <!-->
+    <script language="javascript">
+	    function show_date_time() {
+	        window.setTimeout("show_date_time()", 1000);
+	        BirthDay = new Date("6/7/2018 00:00:00");//这个日期是可以修改的
+	        today = new Date();
+	        timeold = (today.getTime() - BirthDay.getTime());
+	        sectimeold = timeold / 1000
+	        secondsold = Math.floor(sectimeold);
+	        msPerDay = 24 * 60 * 60 * 1000
+	        e_daysold = timeold / msPerDay
+	        daysold = Math.floor(e_daysold);
+	        e_hrsold = (e_daysold - daysold) * 24;
+	        hrsold = Math.floor(e_hrsold);
+	        e_minsold = (e_hrsold - hrsold) * 60;
+	        minsold = Math.floor((e_hrsold - hrsold) * 60);
+	        seconds = Math.floor((e_minsold - minsold) * 60);
+          document.getElementById('d').innerHTML = daysold;
+          document.getElementById('h').innerHTML = hrsold;
+          document.getElementById('m').innerHTML = minsold;
+          document.getElementById('s').innerHTML = seconds;
+	    }
+	    show_date_time();
+	</script>
+
 </body>
 
 </html>
+
